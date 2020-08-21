@@ -1,0 +1,22 @@
+{
+  "name": "qq-qun-manage",
+  "version": "1.0.1",
+  "description": "qq qun manage",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "qq",
+    "group",
+    "qq group",
+    "qun",
+    "qq-qun-manage",
+    "qq qun"
+  ],
+  "author": "xumeng",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
