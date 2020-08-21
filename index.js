@@ -1,6 +1,6 @@
 var request = require("request")
 var fs = require('fs')
-let cookie = '' // QQ群用户cookie
+let cookie = '' // QQ群cookie
 let bkn = '' // QQ群核心密钥，通过cookie传入getBkn计算得来
 
 /**
@@ -10,12 +10,12 @@ let bkn = '' // QQ群核心密钥，通过cookie传入getBkn计算得来
 const qqGroupInit = async function (QQcookie) {
     bkn = await getBkn(QQcookie)
     cookie = QQcookie
-    return new Promise((resolve,reject) => {
-        getMyInfo().then(res=>{
-            if(res.uin){
-                console.log('初始化成功，欢迎您,'+res.nickName+'！')
+    return new Promise((resolve, reject) => {
+        getMyInfo().then(res => {
+            if (res.uin) {
+                console.log('初始化成功，欢迎您,' + res.nickName + '！')
                 resolve(bkn)
-            }else{
+            } else {
                 console.log('初始化失败，请检查cookie是否正确！')
                 reject('初始化失败')
             }
@@ -25,7 +25,7 @@ const qqGroupInit = async function (QQcookie) {
 }
 
 /**
- * 获取btn
+ * 获取bkn
  * 
  * qq群管理重要参数，相当于密钥
  */
@@ -156,7 +156,7 @@ const getCount = function (qqGroupNum) {
 /**
  * 
  * @param {*} qqGroupNum qq群号码
- * @param {*} st 页码 
+ * @param {*} st 起始qq成员序号
  */
 const getQQNumbersOnePage = function (qqGroupNum, st) {
     return new Promise((resolve, reject) => {
@@ -186,7 +186,7 @@ const getQQNumbersOnePage = function (qqGroupNum, st) {
  * 通过qq群号码获取该QQ群下的所有用户
  */
 const getQQNumbersByGroupNum = function (groupNum) {
-    return new Promise( async (resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         let count = await getCount(groupNum);
         let dataStr = [];
         for (let i = 0; i < count; i = i + 40) {
@@ -202,7 +202,7 @@ const getQQNumbersByGroupNum = function (groupNum) {
  * 循环获取所有群的组员，并保存json文件
  *  
  */
-const getAllGroupQQNumbers = async function () {
+const getQQNumbersOfAllGroups = async function () {
     const groups = await getGroups()
     groups.forEach(async (group) => {
         const resStr = await getQQNumbersByGroupNum(group.gc)
@@ -239,6 +239,6 @@ module.exports = {
     getFriends,
     getGroups,
     getQQNumbersByGroupNum,
-    getAllGroupQQNumbers,
+    getQQNumbersOfAllGroups,
     saveFile
 }

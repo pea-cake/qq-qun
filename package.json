@@ -1,6 +1,6 @@
 {
   "name": "qq-qun-manage",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "qq qun manage",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,12 @@
     "qq group",
     "qun",
     "qq-qun-manage",
-    "qq qun"
+    "qq qun",
+    "qq群"
   ],
+  "repository": {
+    "gitee": "https://gitee.com/peacake/qq-qun-manage.git"
+  },
   "author": "xumeng",
   "license": "MIT",
   "dependencies": {
