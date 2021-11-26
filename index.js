@@ -3,6 +3,21 @@ var fs = require('fs')
 let cookie = '' // QQ群cookie
 let bkn = '' // QQ群核心密钥，通过cookie传入getBkn计算得来
 
+
+/**
+ * 延时second秒
+ * @param {Number} second 
+ */
+const Sleep = function(second=3){
+    return new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve()
+        },second*1000)
+    })
+}
+
+
+
 /**
  * 初始化本插件，传入qq群登陆后的cookie
  * @param {*} cookie 
@@ -204,10 +219,11 @@ const getQQNumbersByGroupNum = function (groupNum) {
  */
 const getQQNumbersOfAllGroups = async function () {
     const groups = await getGroups()
-    groups.forEach(async (group) => {
-        const resStr = await getQQNumbersByGroupNum(group.gc)
-        await saveFile(group.gn + '(' + group.gc + ')群成员', resStr)
-    })
+    for(let i=0;i<groups.length;i++){
+        const resStr = await getQQNumbersByGroupNum(groups[i].gc)
+        await saveFile(groups[i].gn + '(' + groups[i].gc + ')群成员', JSON.stringify(resStr))
+        await Sleep(5)
+    }
 }
 
 /**
