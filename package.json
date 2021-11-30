@@ -1,6 +1,6 @@
 {
   "name": "qq-qun-manage",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "qq qun manage",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,10 @@
     "qq qun",
     "qq群"
   ],
+  "homepage":"https://github.com/pea-cake/qq-qun",
   "repository": {
-    "gitee": "https://gitee.com/peacake/qq-qun-manage.git"
+    "type":"git",
+    "url": "https://github.com/pea-cake/qq-qun.git"
   },
   "author": "xumeng",
   "license": "MIT",

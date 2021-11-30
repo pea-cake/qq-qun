@@ -14,4 +14,4 @@ qqGroupManage.qqGroupInit('cookie').then(async res=>{
         chrome浏览器，登录qq群成功之后，F12 > 切换到console > 输入 `document.cookie` > Enter 即可
 
 
-* 还有很多待完善的地方，大家多多[指点](https://gitee.com/peacake/qq-qun-manage/issues)！
+* 还有很多待完善的地方，大家多多[指点](https://github.com/pea-cake/qq-qun/issues)！
