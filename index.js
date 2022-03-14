@@ -1,5 +1,5 @@
-var request = require("request")
-var fs = require('fs')
+const request = require("request")
+const fs = require('fs')
 let cookie = '' // QQ群cookie
 let bkn = '' // QQ群核心密钥，通过cookie传入getBkn计算得来
 
